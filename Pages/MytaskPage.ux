@@ -1,0 +1,40 @@
+<BasePage ux:Class="MytaskPage">
+	<Router ux:Dependency="router" />
+	<Visual ux:Dependency="navBar" />
+	
+	<NavBarTitle navBar="navBar" BoldText="TODAY:" Text="Current Contract" />
+	
+	  <DockPanel>
+
+        <JavaScript File="../Javascripts/restapi.js" />
+
+        <Button Text="Add Test Case" Clicked="{addItem}" Dock="Top" />
+        <Button Text="Clear" Clicked="{clear}" Dock="Top" Alignment="Right" />
+        <ScrollView>
+            <StackPanel>
+                <Each Items="{items}">
+                    <DockPanel Padding="10" Margin="0,1" Background="#fff" ux:Name="People">
+                        <Text Value="{Key}" Alignment="CenterLeft" />
+                        <Button Text="X" Clicked="{removeItem}" Dock="Right" />
+
+                        <LayoutAnimation>
+                            <Move RelativeTo="LayoutChange" Y="1" Duration="0.8" Easing="ElasticIn" />
+                        </LayoutAnimation>
+
+                        <AddingAnimation>
+                            <Move RelativeTo="Size" X="1" Duration="0.3" Easing="CircularIn" />
+                        </AddingAnimation>
+
+                        <RemovingAnimation>
+                            <Move RelativeTo="Size" X="-1" Duration="0.4" Easing="CircularOut" />
+                        </RemovingAnimation>
+
+                        <WhileString Value="{gender}" Equals="male">
+                            <Change People.Color="Black" />
+                        </WhileString>
+                    </DockPanel>
+                </Each>
+            </StackPanel>
+        </ScrollView>
+    </DockPanel>
+</BasePage>

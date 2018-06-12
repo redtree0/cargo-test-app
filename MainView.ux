@@ -1,0 +1,21 @@
+<App>
+	<iOS.StatusBarConfig Style="Dark" />
+	<Android.StatusBarConfig Color="#000" />
+
+	<Router ux:Name="router" />
+	
+	<DockPanel>
+		<StatusBarBackground Dock="Top" />
+		<NavBar ux:Name="navBar" Dock="Top" />
+		
+		<Navigator DefaultPath="home">
+			<HomePage ux:Name="home" router="router" navBar="navBar" />
+			<MytaskPage ux:Name="mytask" router="router" navBar="navBar" />
+			<ListPage ux:Name="list" router="router" navBar="navBar" />
+			<PointPage ux:Name="point" router="router" navBar="navBar" />
+		</Navigator>
+
+		<BottomBar Dock="Bottom" />
+		<BottomBarBackground Dock="Bottom" />
+	</DockPanel>
+</App>

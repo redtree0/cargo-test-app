@@ -1,0 +1,86 @@
+<BasePage ux:Class="PointPage">
+	<Router ux:Dependency="router" />
+	<Visual ux:Dependency="navBar" />
+	
+	<NavBarTitle navBar="navBar" BoldText="MY:" Text="POINTS" />
+	
+	 <JavaScript File="../Javascripts/point.js" />
+
+	 <Activated>
+			<Callback Handler="{onActivated}" />
+	</Activated>
+	<DockPanel>
+		<StackPanel Dock="Top">
+			<Panel Height="250">
+				<Panel Margin="0,35,80,35" Alignment="Top" Offset="-2,0">
+					<Grid Columns="auto,1*" CellSpacing="6" Margin="10">
+
+						<StatLabel>Id</StatLabel>
+						<StatValue>{id}</StatValue>
+						
+						<StatLabel>POINT</StatLabel>
+						<StatValue>{point}</StatValue>
+						
+					</Grid>
+					<Rectangle Layer="Background" CornerRadius="2" Color="#fff">
+						<Stroke Width="2" Color="BorderColor" />
+					</Rectangle>
+				</Panel>
+			</Panel>
+			
+			<!-- <AddButton Text="Add Time" Alignment="BottomRight" Margin="15,0" Anchor="100%,-50%"/> -->
+			
+			<HorizontalLine>
+				<HardShadow />
+			</HorizontalLine>
+			
+			<NoiseRectangle Layer="Background" Color="#6AEAFF" NoiseIntensity="0.1" />
+		</StackPanel>
+		
+		<!-- <ScrollView> -->
+
+
+			<TextInput ux:Class="MyTextInput" FontSize="20" PlaceholderColor="#ccc" Padding="5">
+			    <Rectangle Layer="Background" CornerRadius="3">
+			        <Stroke Width="1" Color="#ccc" />
+			        <SolidColor Color="White" />
+			    </Rectangle>
+			</TextInput>
+
+			<StackPanel Margin="35,25">
+				<Panel>
+					<Text Value="Charge" />
+					<Clicked>
+						<Callback Handler="{chargePoint}"/>
+					</Clicked>
+				</Panel>
+				<MyTextInput PlaceholderText="Charge your Point" Value="{inputPoint}" />
+				<Panel>
+					<Text Value="Use" />
+					<Clicked>
+						<Callback Handler="{usePoint}"/>
+					</Clicked>
+				</Panel>
+			<!--     <MyTextInput PlaceholderText="Use your Point" />
+			     <Button Alignment="CenterRight" Text="Use" Margin="5">
+			        <Clicked>
+			        	<Callback Handler="{chargePoint}"/>
+			        </Clicked>
+			    </Button>
+ -->
+				<!-- <Grid Columns="auto,1*" CellSpacing="6" Margin="10">
+
+						<StatLabel>Charge</StatLabel>
+						<StatValue>{id}</StatValue>
+						
+						<StatLabel>POINT</StatLabel>
+						<StatValue>{point}</StatValue>
+						
+					</Grid> -->
+				<!-- <ActivityTimeListItem /> -->
+				<!-- <ActivityTimeListItem /> -->
+				<!-- <ActivityTimeListItem /> -->
+			</StackPanel>
+		<!-- </ScrollView> -->
+	</DockPanel>
+</BasePage>
